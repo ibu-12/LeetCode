@@ -20,10 +20,9 @@ public:
         q.push(root);
         while (!q.empty()) {
             int s = q.size();
-            int l=1;
-            for (int i = 0; i < s; i++) {
+            for (int i = 1; i <= s; i++) {
                 TreeNode* curr = q.front();
-                if(l==1) c.push_back(curr->val);
+                if(i==1) c.push_back(curr->val);
                    
                 q.pop();
 
@@ -31,7 +30,6 @@ public:
                     q.push(curr->right);
                 if (curr->left)
                     q.push(curr->left);
-                l++;
             }
         }
         return c;
