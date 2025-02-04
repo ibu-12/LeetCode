@@ -12,19 +12,25 @@
 class Solution {
 
 public:
-    void in(TreeNode* root,vector<int>& v) {
+    int count=0;
+    int res=0;
+    void in(TreeNode* root,int k) {
         
         if(root==nullptr)return ;
-        in(root->left,v);
-        v.push_back(root->val);
-        in(root->right,v);
+        in(root->left,k);
+        count++;
+        if(count==k){
+            res=root->val;
+            return;
+        }
+        in(root->right,k);
+        return ;
     }
 
 public:
     int kthSmallest(TreeNode* root, int k) {
-        vector<int>v;
-        in(root,v);
-        sort(v.begin(),v.end());
-        return v[k-1];
+        in(root,k);
+        return res;
+        
     }
 };
