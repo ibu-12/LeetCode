@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    std::vector<std::vector<int>> pathSum(TreeNode* root, int targetSum) {
-        std::vector<std::vector<int>> result;
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        vector<vector<int>> result;
         backtrack(root, targetSum, {}, result);
         return result;
     }
 
-    void backtrack(TreeNode* root, int targetSum, std::vector<int> currentlist, std::vector<std::vector<int>>& result) {
+    void backtrack(TreeNode* root, int targetSum, vector<int> currentlist, vector<vector<int>>& result) {
         if (root == nullptr) {
             return;
         }
