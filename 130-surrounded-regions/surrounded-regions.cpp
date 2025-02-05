@@ -4,7 +4,7 @@ public:
         if (i < 0 || j < 0 || i >= n || j >= m || arr[i][j] != 'O') {
             return;
         }
-        arr[i][j] = 'Y';  // Mark as visited
+        arr[i][j] = 'Y';
         int dr[] = {1, 0, -1, 0};
         int dc[] = {0, 1, 0, -1};
         for (int k = 0; k < 4; k++) {
@@ -17,7 +17,7 @@ public:
         if (n == 0) return;
         int m = board[0].size();
 
-        // Run DFS for boundary 'O' cells
+    
         for (int i = 0; i < n; i++) {
             if (board[i][0] == 'O') dfs(i, 0, board, n, m);
             if (board[i][m - 1] == 'O') dfs(i, m - 1, board, n, m);
@@ -27,7 +27,6 @@ public:
             if (board[n - 1][j] == 'O') dfs(n - 1, j, board, n, m);
         }
 
-        // Convert 'O' to 'X' and 'Y' back to 'O'
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (board[i][j] == 'O') board[i][j] = 'X';
