@@ -10,9 +10,6 @@ public:
             if(f!=s){
                 pq.push(f-s);
             }
-            else{
-                pq.push(0);
-            }
         }
         if(pq.size()==0)return 0;
         return pq.top();
