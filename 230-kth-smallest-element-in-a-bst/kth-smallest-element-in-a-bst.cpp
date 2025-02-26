@@ -19,7 +19,6 @@ public:
         c++;
         if(c==k){
             ans=root->val;
-            return;
         }
         kthSmallest(root->right,k);
     }
