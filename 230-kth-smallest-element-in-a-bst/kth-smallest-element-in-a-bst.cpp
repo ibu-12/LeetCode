@@ -10,27 +10,20 @@
  * };
  */
 class Solution {
-
 public:
-    int count=0;
-    int res=0;
-    void in(TreeNode* root,int k) {
-        
-        if(root==nullptr)return ;
-        in(root->left,k);
-        count++;
-        if(count==k){
-            res=root->val;
-            return;
+    int c=0;
+    int ans;
+    void small(TreeNode* root, int k){
+        if(!root)return ;
+        kthSmallest(root->left,k);
+        c++;
+        if(c==k){
+            ans=root->val;
         }
-        in(root->right,k);
-        return ;
+        kthSmallest(root->right,k);
     }
-
-public:
     int kthSmallest(TreeNode* root, int k) {
-        in(root,k);
-        return res;
-        
+        small(root,k);
+        return ans;
     }
 };
