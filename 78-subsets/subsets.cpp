@@ -1,23 +1,22 @@
 class Solution {
 public:
 
-    void f(int ind ,vector<int>& nums,vector<vector<int>>& ans,int n,vector<int>&ds){
-        if(ind==nums.size()){
+    void f(int ind,vector<int>&ds,vector<int>& arr,vector<vector<int>>&ans,int n){
+        if(ind==n){
             ans.push_back(ds);
             return;
         }
-        ds.push_back(nums[ind]);
-        f(ind+1,nums,ans,n,ds);
+        ds.push_back(arr[ind]);
+        f(ind+1,ds,arr,ans,n);
         ds.pop_back();
-        f(ind+1,nums,ans,n,ds);
+        f(ind+1,ds,arr,ans,n);
     }
 
-    vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans;
-        int n=nums.size();
-        // ans.push_back(vector<int>());
+    vector<vector<int>> subsets(vector<int>& arr) {
+        vector<vector<int>>ans;
         vector<int>ds;
-        f(0,nums,ans,n,ds);
+        int n=arr.size();
+        f(0,ds,arr,ans,n);
         return ans;
     }
 };
